@@ -1,5 +1,7 @@
 # RSpec::FileFixtures
 
+A simple and convenient file fixture loader for [_RSpec_](https://rspec.info/).
+
 ## Installation
 
 Add this line to your application's Gemfile:
