@@ -8,7 +8,7 @@ PATH
 PATH
   remote: .
   specs:
-    rspec-file_fixtures (0.1.0)
+    rspec-file_fixtures (0.1.1)
 
 GEM
   remote: https://rubygems.org/
