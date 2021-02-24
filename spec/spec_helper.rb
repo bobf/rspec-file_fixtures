@@ -4,7 +4,6 @@ require 'bundler/setup'
 require 'rspec/file_fixtures'
 require 'devpack'
 
-require 'rspec'
 require 'rspec/its'
 
 RSpec.configure do |config|

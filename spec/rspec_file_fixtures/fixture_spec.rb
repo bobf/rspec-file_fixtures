@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-RSpec.describe RSpec::FileFixtures::Fixture do
+RSpec.describe RSpecFileFixtures::Fixture do
   subject(:fixture) { described_class.new(path) }
 
   let(:path) { 'example.json' }

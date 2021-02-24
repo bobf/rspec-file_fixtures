@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require_relative 'lib/rspec/file_fixtures/version'
+require_relative 'lib/rspec_file_fixtures/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'rspec-file_fixtures'
-  spec.version       = RSpec::FileFixtures::VERSION
+  spec.version       = RSpecFileFixtures::VERSION
   spec.authors       = ['Bob Farrell']
   spec.email         = ['git@bob.frl']
 
@@ -23,4 +23,5 @@ Gem::Specification.new do |spec|
   spec.bindir        = 'bin'
   spec.executables   = []
   spec.require_paths = ['lib']
+  spec.add_dependency 'rspec', '~> 3.0'
 end
