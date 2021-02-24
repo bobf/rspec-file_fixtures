@@ -4,8 +4,6 @@ require 'yaml'
 require 'json'
 require 'pathname'
 
-require 'rspec'
-
 require 'rspec/file_fixtures/version'
 require 'rspec/file_fixtures/fixture'
 
