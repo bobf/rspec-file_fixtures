@@ -7,7 +7,7 @@ A simple and convenient file fixture loader for [_RSpec_](https://rspec.info/).
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rspec-file_fixtures', '~> 0.1.2'
+gem 'rspec-file_fixtures', '~> 0.1.3'
 ```
 
 And then execute:

@@ -24,6 +24,8 @@ module RSpecFileFixtures
 
     def path
       pathname.realpath.to_s
+    rescue Errno::ENOENT
+      pathname.expand_path.to_s
     end
 
     def json

@@ -27,4 +27,9 @@ RSpec.describe RSpecFileFixtures::Fixture do
       expect(fixture.xml).to be_a Nokogiri::XML::Document
     end
   end
+
+  context 'file does not exist' do
+    let(:path) { 'nonsense.brk' }
+    its(:path) { is_expected.to eql File.expand_path(File.join('spec', 'fixtures', 'nonsense.brk')) }
+  end
 end
