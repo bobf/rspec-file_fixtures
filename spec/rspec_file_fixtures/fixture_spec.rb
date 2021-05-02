@@ -13,12 +13,26 @@ RSpec.describe RSpecFileFixtures::Fixture do
   context 'json' do
     let(:path) { 'example.json' }
     its(:json) { is_expected.to eql(key: 'value') }
+    it 'does not symbolize names when `symbolize_names` parameter is false' do
+      expect(subject.json(symbolize_names: false)['key']).to eql 'value'
+    end
+
+    it 'does not symbolize names when shorthand `symbolize_names` parameter is false' do
+      expect(subject.json(false)['key']).to eql 'value'
+    end
   end
 
   context 'yaml' do
     let(:path) { 'example.yaml' }
     its(:yaml) { is_expected.to eql(key: 'value') }
     its(:yml) { is_expected.to eql fixture.yaml }
+    it 'does not symbolize names when `symbolize_names` parameter is false' do
+      expect(subject.yml(symbolize_names: false)['key']).to eql 'value'
+    end
+
+    it 'does not symbolize names when shorthand `symbolize_names` parameter is false' do
+      expect(subject.yml(false)['key']).to eql 'value'
+    end
   end
 
   context 'xml' do
