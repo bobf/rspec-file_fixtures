@@ -36,7 +36,7 @@ Use the returned `Fixture` object's various methods in your tests:
 
 ```ruby
 it 'loads data' do
-  expect(subject.load(my_fixture.read)).to eql my_fixture.json
+  expect(subject.load(my_fixture.read)).to eql my_fixture.from_json
 end
 ```
 
@@ -46,19 +46,19 @@ The following methods are provided on the `Fixture` object:
 |-|-|
 |`#read`|Read the contents of the fixture file as a string|
 |`#path`|The absolute path to the fixture file|
-|`#json`|The parsed _JSON_ content from the file|
-|`#yaml`|The parsed _YAML_ content from the file (aliased as `#yml`)|
-|`#xml`|The parsed _XML_ content from the file (requires the [_Nokogiri_](https://nokogiri.org/) gem and returns a `Nokogiri::XML::Document`)|
+|`#from_json`|The parsed _JSON_ content from the file|
+|`#from_yaml`|The parsed _YAML_ content from the file (aliased as `#from_yml`)|
+|`#from_xml`|The parsed _XML_ content from the file (requires the [_Nokogiri_](https://nokogiri.org/) gem and returns a `Nokogiri::XML::Document`)|
 
 ### Symbolize Names
 
-By default `Fixture#yaml` and `Fixture#json` symbolize all keys in their output. To disable this behaviour, pass `symbolize_names: true` to either method. A shorthand version of this is available by simply passing `false` as the only parameter:
+By default `Fixture#from_yaml` and `Fixture#from_json` symbolize all keys in their output. To disable this behaviour, pass `symbolize_names: false` to either method. A shorthand version of this is available by simply passing `false` as the only parameter:
 
 ```ruby
-  expect(subject.load(my_fixture.yaml(symbolize_names: false))).to eql({ 'foo' => 'bar' })
-  expect(subject.load(my_fixture.json(symbolize_names: false))).to eql({ 'foo' => 'bar' })
-  expect(subject.load(my_fixture.yaml(false))).to eql({ 'foo' => 'bar' })
-  expect(subject.load(my_fixture.json(false))).to eql({ 'foo' => 'bar' })
+  expect(subject.load(my_fixture.from_yaml(symbolize_names: false))).to eql({ 'foo' => 'bar' })
+  expect(subject.load(my_fixture.from_json(symbolize_names: false))).to eql({ 'foo' => 'bar' })
+  expect(subject.load(my_fixture.from_yaml(false))).to eql({ 'foo' => 'bar' })
+  expect(subject.load(my_fixture.from_json(false))).to eql({ 'foo' => 'bar' })
 ```
 
 ## License

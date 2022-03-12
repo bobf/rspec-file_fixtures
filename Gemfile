@@ -5,7 +5,7 @@ source 'https://rubygems.org'
 # Specify your gem's dependencies in rspec-file_fixtures.gemspec
 gemspec
 
-gem 'devpack', '~> 0.3.2'
+gem 'devpack', '~> 0.4.0'
 gem 'nokogiri', '~> 1.11'
 gem 'rake', '~> 12.0'
 gem 'rspec', '~> 3.0'

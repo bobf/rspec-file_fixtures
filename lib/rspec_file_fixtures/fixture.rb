@@ -11,7 +11,7 @@ module RSpecFileFixtures
       pathname.read
     end
 
-    def xml
+    def from_xml
       require 'nokogiri'
       Nokogiri::XML.parse(read)
     end
@@ -23,16 +23,23 @@ module RSpecFileFixtures
     end
 
     # rubocop:disable Style/OptionalBooleanParameter
-    def json(symbolize_names_shorthand = true, symbolize_names: true)
+    def from_json(symbolize_names_shorthand = true, symbolize_names: true)
       JSON.parse(read, symbolize_names: symbolize_names & symbolize_names_shorthand)
     end
 
-    def yaml(symbolize_names_shorthand = true, symbolize_names: true)
+    def from_yaml(symbolize_names_shorthand = true, symbolize_names: true)
       YAML.safe_load(read, symbolize_names: symbolize_names & symbolize_names_shorthand)
     end
     # rubocop:enable Style/OptionalBooleanParameter
 
-    alias yml yaml
+    alias from_yml from_yaml
+
+    # Backward compatibility
+    alias yml from_yml
+    alias yaml from_yaml
+    alias xml from_xml
+    alias json from_json
+    # /Backward compatibility
 
     private
 
