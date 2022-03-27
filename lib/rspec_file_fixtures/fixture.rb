@@ -43,6 +43,18 @@ module RSpecFileFixtures
 
     private
 
+    def method_missing(method_name, *args)
+      return pathname.public_send(method_name, *args) if respond_to_missing?(method_name)
+
+      super
+    end
+
+    def respond_to_missing?(method_name, _ = false)
+      return true if pathname.respond_to?(method_name)
+
+      super
+    end
+
     def pathname
       @pathname ||= base_path.join(@raw_path)
     end

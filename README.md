@@ -7,7 +7,7 @@ A simple and convenient file fixture loader for [_RSpec_](https://rspec.info/).
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'rspec-file_fixtures', '~> 0.1.5'
+gem 'rspec-file_fixtures', '~> 0.1.6'
 ```
 
 And then execute:
@@ -35,8 +35,15 @@ let(:my_fixture) { fixture('fixture.json') }
 Use the returned `Fixture` object's various methods in your tests:
 
 ```ruby
-it 'loads data' do
+it 'parses JSON data' do
   expect(subject.load(my_fixture.read)).to eql my_fixture.from_json
+end
+```
+
+```ruby
+it 'contains same filenames as fixture directory' do
+  # `#dirname` delegated to underlying `Pathname` object, returning a new `Pathname` instance:
+  expect(subject.created_files).to eql my_fixture.dirname.entries
 end
 ```
 
@@ -49,6 +56,8 @@ The following methods are provided on the `Fixture` object:
 |`#from_json`|The parsed _JSON_ content from the file|
 |`#from_yaml`|The parsed _YAML_ content from the file (aliased as `#from_yml`)|
 |`#from_xml`|The parsed _XML_ content from the file (requires the [_Nokogiri_](https://nokogiri.org/) gem and returns a `Nokogiri::XML::Document`)|
+
+Methods not specifically defined above are delegated to the underlying `Pathname` object (`#join`, `#dirname`, `#mkpath`, etc.). See the [Pathname documentation](https://ruby-doc.org/stdlib-2.7.5/libdoc/pathname/rdoc/Pathname.html) for more details.
 
 ### Symbolize Names
 

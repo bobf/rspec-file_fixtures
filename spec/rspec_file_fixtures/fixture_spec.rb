@@ -10,6 +10,15 @@ RSpec.describe RSpecFileFixtures::Fixture do
   its(:read) { is_expected.to eql %({"key":"value"}\n) }
   its(:path) { is_expected.to eql File.expand_path(File.join('spec', 'fixtures', 'example.json')) }
 
+  describe '#join' do
+    subject(:join) { fixture.join('bar', 'baz') }
+
+    let(:path) { '/foo' }
+
+    it { is_expected.to be_a Pathname }
+    its(:to_s) { is_expected.to eql '/foo/bar/baz' }
+  end
+
   context 'json' do
     let(:path) { 'example.json' }
     its(:from_json) { is_expected.to eql(key: 'value') }
