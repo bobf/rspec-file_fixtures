@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    rspec-file_fixtures (0.1.6)
+    rspec-file_fixtures (0.1.7)
       rspec (~> 3.12)
 
 GEM
