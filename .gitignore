@@ -12,3 +12,4 @@
 *.gem
 
 .byebug_history
+/rspec-documentation/bundle/

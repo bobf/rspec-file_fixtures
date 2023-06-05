@@ -1,3 +1,7 @@
+# License
+
+## MIT
+
 The MIT License (MIT)
 
 Copyright (c) 2023 Robert Farrell
