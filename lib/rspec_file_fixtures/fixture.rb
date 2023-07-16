@@ -11,6 +11,10 @@ module RSpecFileFixtures
       pathname.read
     end
 
+    def copy_to(destination)
+      FileUtils.copy(pathname, destination)
+    end
+
     def from_xml
       require 'nokogiri'
       Nokogiri::XML.parse(read)

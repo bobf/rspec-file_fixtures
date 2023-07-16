@@ -19,6 +19,28 @@ RSpec.describe RSpecFileFixtures::Fixture do
     its(:to_s) { is_expected.to eql '/foo/bar/baz' }
   end
 
+  describe '#copy_to' do
+    let!(:temp_dir) { Pathname.new(Dir.mktmpdir) }
+
+    after { FileUtils.remove_entry(temp_dir) }
+
+    context 'when destination parameter is a pathname' do
+      subject(:destination_path) { temp_dir.join('copied.json') }
+
+      before { fixture.copy_to(destination_path)}
+
+      it { is_expected.to be_file }
+    end
+
+    context 'when destination parameter is string' do
+      subject(:destination_path) { temp_dir.join('copied.json') }
+
+      before { fixture.copy_to(destination_path.to_s)}
+
+      it { is_expected.to be_file }
+    end
+  end
+
   context 'json' do
     let(:path) { 'example.json' }
     its(:from_json) { is_expected.to eql(key: 'value') }
