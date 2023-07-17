@@ -27,7 +27,7 @@ RSpec.describe RSpecFileFixtures::Fixture do
     context 'when destination parameter is a pathname' do
       subject(:destination_path) { temp_dir.join('copied.json') }
 
-      before { fixture.copy_to(destination_path)}
+      before { fixture.copy_to(destination_path) }
 
       it { is_expected.to be_file }
     end
@@ -35,7 +35,7 @@ RSpec.describe RSpecFileFixtures::Fixture do
     context 'when destination parameter is string' do
       subject(:destination_path) { temp_dir.join('copied.json') }
 
-      before { fixture.copy_to(destination_path.to_s)}
+      before { fixture.copy_to(destination_path.to_s) }
 
       it { is_expected.to be_file }
     end
