@@ -12,6 +12,7 @@ module RSpecFileFixtures
     end
 
     def copy_to(destination)
+      Pathname.new(destination).dirname.mkpath
       FileUtils.copy(pathname, destination)
     end
 
