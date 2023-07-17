@@ -4,14 +4,13 @@ You can use the `#copy_to(destination)` method to copy the fixture file to the d
 
 ```rspec
 let(:example_fixture) { fixture('example.json') }
-
-subject(:destination_path) { File.join(Dir.mktmpdir, 'path/to/destination/copied.json') }
+let(:destination_path) { File.join(Dir.mktmpdir, 'path/to/destination/copied.json') }
 
 before { example_fixture.copy_to(destination_path) }
 
 after { File.unlink(destination_path) }
 
 it 'copies file content' do
-  expect(File).to exist(destination_path)
+  expect(File.read(destination_path).chomp).to eql '{"key":"value"}'
 end
 ```
