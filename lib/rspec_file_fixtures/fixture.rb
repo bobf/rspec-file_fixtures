@@ -16,6 +16,10 @@ module RSpecFileFixtures
       FileUtils.copy(pathname, destination)
     end
 
+    def upload(content_type:)
+      Rack::Test::UploadedFile.new(path, content_type)
+    end
+
     def from_xml
       require 'nokogiri'
       Nokogiri::XML.parse(read)

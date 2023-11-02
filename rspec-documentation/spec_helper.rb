@@ -3,3 +3,4 @@
 require 'tempfile'
 
 require 'rspec/file_fixtures'
+require 'rack/test/uploaded_file'

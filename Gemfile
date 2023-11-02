@@ -7,6 +7,7 @@ gemspec
 
 gem 'devpack', '~> 0.4.1'
 gem 'nokogiri', '~> 1.15'
+gem 'rack-test', '~> 2.1'
 gem 'rake', '~> 13.0'
 gem 'rspec', '~> 3.12'
 gem 'rspec-documentation', '~> 0.0.5'
