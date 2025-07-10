@@ -3,7 +3,7 @@
 A simple and convenient file fixture loader for [_RSpec_](https://rspec.info/).
 
 ```ruby
-let(:my_fixture) { fixture('my_fixture.json').read }
+let(:my_fixture) { load_fixture('my_fixture.json').read }
 ```
 
 ## Documentation

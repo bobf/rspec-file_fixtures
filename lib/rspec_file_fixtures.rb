@@ -15,6 +15,7 @@ module RSpecFileFixtures
   def fixture(path)
     Fixture.new(path)
   end
+  alias load_fixture fixture
 end
 
 RSpec.configure do |config|

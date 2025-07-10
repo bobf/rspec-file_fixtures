@@ -25,7 +25,7 @@ require 'rspec/file_fixtures'
 Use the provided `fixture` helper anywhere in your tests to load content from `spec/fixtures/`:
 
 ```rspec:json
-subject { fixture('example.json').read }
+subject { load_fixture('example.json').read }
 
 it { is_expected.to include '{"key":"value"}' }
 ```

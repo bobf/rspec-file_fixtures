@@ -5,7 +5,7 @@ You can use the `#copy_to(destination)` method to copy the fixture file to the d
 ```rspec:json
 subject { File.read(destination_path).chomp }
 
-let(:example_fixture) { fixture('example.json') }
+let(:example_fixture) { load_fixture('example.json') }
 let(:destination_path) { File.join(Dir.mktmpdir, 'path/to/destination/copied.json') }
 
 before { example_fixture.copy_to(destination_path) }
